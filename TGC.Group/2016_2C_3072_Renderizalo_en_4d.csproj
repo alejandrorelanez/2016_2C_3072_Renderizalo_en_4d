@@ -73,6 +73,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Camara\TgcFpsCamara.cs" />
+    <Compile Include="Camara\TgcRotationalCamera.cs" />
     <Compile Include="Form\GameForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +88,7 @@
     </Compile>
     <Compile Include="Model\GameModel.cs" />
     <Compile Include="Model\Primer_Ejemplo.cs" />
+    <Compile Include="Model\TerrorDarkShader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form\GameForm.resx">
@@ -154,6 +157,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
