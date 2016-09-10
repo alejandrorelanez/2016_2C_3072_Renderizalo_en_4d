@@ -34,7 +34,7 @@ namespace TGC.Group.Model
         private TgcBox puerta01 { get; set; }
         private TgcBox puerta02 { get; set; }
 
-        private TgcPlane suelo;
+        private TgcScene scene;
 
         #endregion
 
@@ -42,31 +42,31 @@ namespace TGC.Group.Model
         {
             var d3dDevice = D3DDevice.Instance.Device;
 
-            var pathTexturaSuelo = MediaDir + "Texturas\\wood.bmp";
+            var loader = new TgcSceneLoader();
+            scene = loader.loadSceneFromFile(MediaDir + "Scene\\escenario-tp-TgcScene.xml");
 
-            var pisoTexture = TgcTexture.createTexture(d3dDevice, pathTexturaSuelo);
-            suelo = new TgcPlane(new Vector3(-500, 0, -500), new Vector3(2000, 0, 2000), TgcPlane.Orientations.XZplane, pisoTexture, 10f, 10f);
-
-            Camara = new TgcFpsCamera(new Vector3(0, 70, 0), 200, 100, Input);
+            Camara = new TgcFpsCamera(new Vector3(50,50,50), 150, 150, Input);
         }
 
         public override void Update()
         {
             PreUpdate();
+
         }
 
         public override void Render()
         {
             PreRender();
 
-            suelo.render();
+
+            scene.renderAll();
 
             PostRender();
         }
 
         public override void Dispose()
         {
-            suelo.dispose();
+            scene.disposeAll();
         }
     }
 }
